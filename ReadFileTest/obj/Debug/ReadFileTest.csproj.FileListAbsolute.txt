@@ -1,0 +1,7 @@
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\bin\Debug\ReadFileTest.exe
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\bin\Debug\ReadFileTest.exe.config
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.csproj.CoreCompileInputs.cache
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.exe
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.pdb
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\bin\Debug\ReadFileTest.pdb
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.csprojAssemblyReference.cache

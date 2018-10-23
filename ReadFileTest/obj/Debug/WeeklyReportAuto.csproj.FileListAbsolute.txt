@@ -1,0 +1,4 @@
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\WeeklyReportAuto.csprojAssemblyReference.cache
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\WeeklyReportAuto.csproj.CoreCompileInputs.cache
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.exe
+C:\Users\wendym\source\repos\ReadFileTest\ReadFileTest\obj\Debug\ReadFileTest.pdb
