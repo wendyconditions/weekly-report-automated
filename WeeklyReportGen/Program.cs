@@ -20,26 +20,26 @@ namespace ReadFileTest
             try
             {
                 string file = "testfile.txt";
-                var fullpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + file;
+                string fullpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + file;
                 using (StreamReader sr = new StreamReader(fullpath))
                 {
                     string line = sr.ReadToEnd();
                     if (line.Any())
                     {
-                        string message = "Email app started at: " + DateTime.Now;
+                        string message = $"Email app started at: {DateTime.Now}";
                         WriteToFile(message);
                         SendEmail(line);
                     }
                     else
                     {
-                        string message = "The file was empty. Date: " + DateTime.Now;
+                        string message = $"The file was empty. Date: {DateTime.Now}";
                         WriteToFile(message);
                     }
                 }
             }
             catch (Exception e)
             {
-                string message = "Exception: " + e.Message;
+                string message = $"Exception: {e.Message}";
                 WriteToFile(message);
             }
         }
@@ -74,25 +74,24 @@ namespace ReadFileTest
             try
             {
                 MailMessage message = new MailMessage();
-                MailAddress fromMA = new MailAddress(email);
-                MailAddress toMA = new MailAddress(email);
+                MailAddress fromMA = new MailAddress("email");
+                MailAddress toMA = new MailAddress("email");
 
                 message.From = fromMA;
                 message.To.Add(toMA);
                 message.Subject = "Weekly Report";
                 message.Body = text;
-                message.IsBodyHtml = false;
+                message.IsBodyHtml = false; // catching line breaks in text file
 
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.Host = "host";
 
                 smtpClient.Send(message);
-                string successMessage = "Email successfully sent at: " + DateTime.Now;
+                string successMessage = $"Email successfully sent at: {DateTime.Now}";
                 WriteToFile(successMessage);
             }
             catch (Exception e)
             {
-                WriteToFile(e.Message);
                 throw;
             }
         }
