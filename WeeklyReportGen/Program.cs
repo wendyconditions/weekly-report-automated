@@ -14,7 +14,9 @@ namespace ReadFileTest
         {
             ReadFile();
         }
-
+        
+        // reading from a txt file located on user desktop
+        // change file variable to whatever file you want the program to read
         private static void ReadFile()
         {
             try
@@ -43,7 +45,9 @@ namespace ReadFileTest
                 WriteToFile(message);
             }
         }
-
+        
+        // Creating and/or adding application messages to a new text file in Logs folder on user desktop
+        // Will write errors or success messages to file to monitor application behaviors if necessary
         private static void WriteToFile(string message)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Logs";
@@ -68,7 +72,9 @@ namespace ReadFileTest
                 }
             }
         }
-
+        
+        // Configure emails to fromMA and toMA
+        // Configure smtpClient Host
         private static void SendEmail(string text)
         {
             try
