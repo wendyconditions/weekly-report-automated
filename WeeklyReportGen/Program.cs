@@ -19,6 +19,7 @@ namespace ReadFileTest
         // change file variable to whatever file you want the program to read
         private static void ReadFile()
         {
+            string message;
             try
             {
                 string file = "testfile.txt";
@@ -26,22 +27,20 @@ namespace ReadFileTest
                 using (StreamReader sr = new StreamReader(fullpath))
                 {
                     string line = sr.ReadToEnd();
-                    if (line.Any())
+                    if (!line.Any())
                     {
-                        string message = $"Email app started at: {DateTime.Now}";
+                        message = $"The file was empty. Date: {DateTime.Now}";
                         WriteToFile(message);
-                        SendEmail(line);
+                        return;
                     }
-                    else
-                    {
-                        string message = $"The file was empty. Date: {DateTime.Now}";
-                        WriteToFile(message);
-                    }
+                    message = $"Email app started at: {DateTime.Now}";
+                    WriteToFile(message);
+                    SendEmail(line);
                 }
             }
             catch (Exception e)
             {
-                string message = $"Exception: {e.Message}";
+                message = $"Exception: {e.Message}";
                 WriteToFile(message);
             }
         }
@@ -57,19 +56,11 @@ namespace ReadFileTest
             }
 
             string filepath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Logs\\WeeklyReport_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
-            if (!File.Exists(filepath))
+            var fileAction = File.Exists(filepath) ? File.AppendText(filepath) : File.CreateText(filepath);
+
+            using (StreamWriter sw = fileAction)
             {
-                using(StreamWriter sw = File.CreateText(filepath))
-                {
-                    sw.WriteLine(message);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(filepath))
-                {
-                    sw.WriteLine(message);
-                }
+                sw.WriteLine(message);
             }
         }
         
